@@ -39,6 +39,7 @@ class RouteModel : public Model {
     
   private:
     void CreateNodeToRoadHashmap();
+    //vector of nodes of a particular node index
     std::unordered_map<int, std::vector<const Model::Road *>> node_to_road;
     std::vector<Node> m_Nodes;
 
