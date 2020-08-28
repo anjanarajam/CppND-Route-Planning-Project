@@ -78,17 +78,14 @@ std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node 
     /* Initialize path found vector */
     std::vector<RouteModel::Node> path_found{};
     /* Initialize parent node as null pointer */
-    RouteModel::Node* parent_node = nullptr;     
-
-    /* Add the current node to the path which is actually the end node */
-    path_found.push_back(*current_node);
+    RouteModel::Node* parent_node = nullptr;  
 
     /* If the current node is not the start node */
     while (current_node->distance(*start_node_) != 0) {
+        /* First push the end node, then the rest of the nodes */
+        path_found.push_back(*current_node);
         /* Set the parent node as the current node's parent */
         parent_node = current_node->parent;
-        /* Add the parent node to the path */
-        path_found.push_back(*parent_node);
         /* Increment distance by the distance between current node and its parent */
         distance_ += current_node->distance(*parent_node);
         /* Set the current node as the parent node */
