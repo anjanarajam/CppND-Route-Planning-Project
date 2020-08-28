@@ -72,13 +72,13 @@ RouteModel::Node *RoutePlanner::NextNode() {
 
 
 /* Function to return the final path found from your A* search */
-std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node *current_node) {
+std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node* current_node) {
     /* Initialize distance */
     distance_ = 0.0f;
     /* Initialize path found vector */
     std::vector<RouteModel::Node> path_found{};
     /* Initialize parent node as null pointer */
-    RouteModel::Node* parent_node = nullptr;  
+    RouteModel::Node* parent_node = nullptr;
 
     /* If the current node is not the start node */
     while (current_node->distance(*start_node_) != 0) {
@@ -101,7 +101,7 @@ std::vector<RouteModel::Node> RoutePlanner::ConstructFinalPath(RouteModel::Node 
     /* Reverse the path so that the start node comes in the begining */
     std::reverse(path_found.begin(), path_found.end());
 
-    return path_found;    
+    return path_found;
 }
 
 /* Function impleemnting A* Search algorithm */
